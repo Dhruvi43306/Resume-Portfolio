@@ -61,7 +61,7 @@ namespace Resume_Portofile_app
                 options.AddPolicy("NextJsPolicy", policy =>
                 {
                     policy
-                        .WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:5173")
+                        .WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:5173", "https://resume-portfolio-hazel-alpha.vercel.app/")
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials();
