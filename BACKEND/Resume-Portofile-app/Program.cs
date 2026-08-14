@@ -61,7 +61,7 @@ namespace Resume_Portofile_app
                 options.AddPolicy("NextJsPolicy", policy =>
                 {
                     policy
-                        .WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:5173", "https://resume-portfolio-hazel-alpha.vercel.app/")
+                        .WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:5173", "https://resume-portfolio-hazel-alpha.vercel.app")
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials();
@@ -76,11 +76,12 @@ namespace Resume_Portofile_app
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+                app.UseHttpsRedirection();
                 app.MapOpenApi();
                 app.MapScalarApiReference("/");
             }
 
-            app.UseHttpsRedirection();
+            
             app.UseCors("NextJsPolicy");
             app.UseAuthentication();
             app.UseAuthorization();
