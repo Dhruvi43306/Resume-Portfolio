@@ -27,10 +27,10 @@ namespace Resume_Portofile_app
             }
 
             builder.Services.AddDbContext<AppdbContext>(options =>
-                options.UseMySql(
-                    connectionString,
-                    ServerVersion.AutoDetect(connectionString)
-                ));
+      options.UseMySql(
+          connectionString, 
+          new MySqlServerVersion(new Version(8, 0, 46))
+      ));
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IMessageService, MessagesService>();
 
